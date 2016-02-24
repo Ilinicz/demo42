@@ -1,0 +1,86 @@
+
+%header
+  .container
+    .header-content.row
+      .six.columns
+        .logo
+          = link_to 'Мансарда', '#'
+          .sublogo
+            ТЕРРИТОРИЯ ОБЩЕНИЯ<span class='regular text-link style='margin-top:;'>*</span>
+      .six.columns
+        .contacts
+          .time
+            10-22:00
+          .phone
+            8-800-355-55-35
+          .address
+            Китай-Город, Маросейка, 8
+  .nav.container
+    .row
+      .twelve.columns
+        %nav.nav-menu#sticky
+          %ul
+            %li= link_to 'проекты', '#'
+            %li= link_to 'досуг', '#'
+            %li= link_to 'правила', '#'
+            %li= link_to 'найти', '#'
+
+
+.greeting
+  .container
+    .row
+      .twelve.columns
+        У нас говорят
+        %br
+        обо всем.
+.spoiler.regular <span class='text-link'>*</span> антикафе.
+
+
+%section.container
+  .row
+    .offset-by-two.three.columns
+      %hr
+    .two.columns
+      %h6 Досуг
+    .three.columns
+      %hr
+
+%section.contact-section.container
+  .row.title
+    .offset-by-two.three.columns
+      %hr
+    .two.columns
+      %h6 Найти
+    .three.columns
+      %hr
+  //.contact-info
+  //  .row
+  //    .six.columns
+  //      .time
+  //        10-22:00
+  //      .phone
+  //        8-800-355-55-35
+  //      .phone
+  //        8-800-355-55-35
+  //      .address
+  //        Китай-Город, Маросейка, 8
+.map#map
+
+%script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0LqlAIUEthIBC2fvBOmpwHOGSmVM-0Iw&callback=initMap"async defer)
+:javascript
+  var styles = [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-100},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-100},{"lightness":40}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-10},{"lightness":30}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":-60},{"lightness":10}]},{"featureType":"landscape.natural","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":-60},{"lightness":60}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"},{"saturation":-100},{"lightness":60}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"on"},{"saturation":50},{"lightness":20}]}]
+  var map;
+  var latLng = {lat: 55.757559, lng: 37.636612};
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 55.757559, lng: 37.636612},
+      zoom: 17
+    });
+    map.setOptions({styles: styles});
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      title: 'Мы здесь'
+    });
+  }
+
